@@ -1,0 +1,35 @@
+Subcarrier spacing          = 15.0 kHz
+Resource blocks             = 25
+Occupied subcarriers        = 300
+Occupied bandwidth          = 4.500 MHz
+Symbols per slot            = 7
+Slot duration               = 0.50 ms
+Resource elements per slot = 2100
+Pilot spacing in frequency = 6 subcarriers
+Pilot symbols per slot      = 2 of 7
+Pilot overhead              = 4.76 %
+
+Assumed rms delay spread   = 0.50 us
+Coherence bandwidth        = 400.0 kHz
+Pilot spacing in frequency = 90.0 kHz
+Pilot spacing is inside the coherence bandwidth, so linear
+interpolation between pilots is valid.
+
+  SNR (dB)   Estimation MSE            EVM     EVM (dB)
+         0          0.26500         0.7391        -2.63
+         3          0.13684         0.6254        -4.08
+         6          0.07461         0.5388        -5.37
+         9          0.03610         0.4347        -7.24
+        12          0.01703         0.3391        -9.39
+        15          0.00821         0.2598       -11.71
+        18          0.00476         0.2093       -13.58
+        21          0.00232         0.1606       -15.89
+        24          0.00109         0.1205       -18.38
+        27          0.00071         0.1029       -19.75
+        30          0.00029         0.0649       -23.75
+
+The estimation error falls with signal to noise ratio until it
+reaches the floor set by interpolation between pilots.
+MMSE equalisation is used, since zero forcing amplifies noise
+without limit on subcarriers lying in a deep fade.
+

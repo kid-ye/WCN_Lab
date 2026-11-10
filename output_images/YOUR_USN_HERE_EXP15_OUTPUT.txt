@@ -1,0 +1,47 @@
+PART A : Fibre attenuation
+    Window Wavelength (um) Attenuation (dB/km)
+     First           0.85             1.7441
+    Second           1.31             0.3257
+     Third           1.55             0.1824
+
+Minimum attenuation 0.1715 dB/km at 1.615 um
+Rayleigh scattering varies as 1/lambda^4 and dominates below
+1.3 um; infrared absorption rises beyond 1.6 um. The minimum
+between them is the reason long haul systems work at 1.55 um.
+
+PART B : Power budget at 1.55 um
+  Launched power        = 0.0 dBm
+  Receiver sensitivity  = -30.0 dBm
+  Total budget          = 30.0 dB
+  Connector loss        = 1.0 dB
+  System margin         = 6.0 dB
+  Available for fibre   = 23.0 dB
+  Fibre attenuation     = 0.1824 dB/km
+  Splice loss           = 0.050 dB/km
+  Maximum link length   = 98.96 km
+
+PART C : Digital link at 2.5 Gbit/s
+   Power (dBm)     Q factor              BER
+         -35.0         0.26        3.993e-01
+         -30.0         0.81        2.098e-01
+         -28.0         1.28        1.004e-01
+         -26.0         2.03        2.133e-02
+         -24.0         3.21        6.591e-04
+         -22.0         5.09        1.800e-07
+         -20.0         8.06        3.780e-16
+
+Receiver sensitivity at BER = 1e-9 : -21.30 dBm (Q = 5.98)
+A bit error rate of 1e-9 corresponds to Q = 6, which is the
+standard design point for a digital optical receiver.
+
+PART D : Analog link, modulation index 0.5
+   Power (dBm)     CNR (dB)    RIN share   Shot share Thermal share
+         -30.0        14.06        0.000        0.000        1.000
+         -25.0        24.05        0.000        0.001        0.999
+         -20.0        34.05        0.000        0.003        0.997
+         -15.0        44.02        0.000        0.009        0.991
+
+At low received power the thermal noise of the receiver dominates
+and the carrier to noise ratio rises 2 dB for every 1 dB of
+optical power. At high power the relative intensity noise of the
+source dominates and the carrier to noise ratio saturates.

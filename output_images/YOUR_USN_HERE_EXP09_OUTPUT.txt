@@ -1,0 +1,30 @@
+FFT size                   = 64
+Used subcarriers           = 52
+Subcarrier spacing         = 312.5000 kHz
+Useful symbol duration     = 3.2000 us
+Cyclic prefix duration     = 0.8000 us
+Total symbol duration      = 4.0000 us
+Cyclic prefix overhead     = 20.00 %
+Symbol efficiency          = 80.00 %
+
+PAPR mean                       = 6.68 dB
+PAPR exceeded by 1 % of symbols = 9.33 dB
+Theoretical limit 10log10(N) = 18.06 dB
+
+ CP length    CP >= L-1 ?            EVM     EVM (dB)
+         0             no         0.1660       -15.60
+         1             no         0.1337       -17.48
+         2             no         0.0951       -20.44
+         3             no         0.0721       -22.85
+         4            yes         0.0383       -28.34
+         8            yes         0.0381       -28.38
+        16            yes         0.0383       -28.34
+
+The channel delay spread is 4 samples. Once the cyclic prefix
+reaches that length the EVM stops improving, because orthogonality
+has been restored and only thermal noise remains.
+
+Subcarrier orthogonality check
+  Inner product of subcarriers 10 and 17 = 1.638e-16
+  Inner product of subcarrier 10 with itself = 1.0000
+

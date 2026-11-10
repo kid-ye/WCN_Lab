@@ -1,0 +1,23 @@
+Bit rate          = 270.83 kbit/s
+Bit period        = 3.6923 us
+Sampling rate     = 4.3333 MHz
+BT product        = 0.30
+
+Gaussian pulse: sigma = 0.4417 bit periods, area = 1.000000
+
+Normal burst length = 148 bits
+Burst duration      = 0.5769 ms
+TDMA frame duration = 4.6154 ms
+
+Envelope variation max|s| - min|s| = 1.110e-16
+GMSK is a constant envelope modulation.
+
+Filter              99 % BW (kHz)      BW / Rb
+BT = 0.2                    211.6         0.78
+BT = 0.3 (GSM)              249.7         0.92
+BT = 0.5                    279.3         1.03
+MSK, no filter              317.4         1.17
+
+The GSM channel spacing is 200 kHz. The occupied bandwidth exceeds
+this because channel spacing is set by the tolerable adjacent
+channel power, not by the occupied bandwidth.

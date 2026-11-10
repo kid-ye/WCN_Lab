@@ -1,0 +1,18 @@
+Wavelength                    = 0.3333 m
+Pt + Gt + Gr                  = 55.0 dBm
+Maximum tolerable path loss = 159.0 dB
+
+Free space path loss at 1 km = 91.53 dB
+
+Two-ray crossover distance   = 1696.5 m (1.696 km)
+
+Model                        Exponent     Range (km)
+Free space                        2.0        2364.12
+Log-distance n = 2.0              2.0        2364.12
+Log-distance n = 2.7              2.7         173.68
+Log-distance n = 3.5              3.5          31.57
+Log-distance n = 4.0              4.0          15.38
+Two-ray asymptotic                4.0          63.33
+
+Antenna height gain 20log10(ht*hr) = 33.06 dB
+Height 30 m to 45 m gains 3.52 dB

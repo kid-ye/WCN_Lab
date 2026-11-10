@@ -1,0 +1,43 @@
+Omnidirectional antenna model
+  Transmit power        = 20 dBm
+  Receiver sensitivity  = -85 dBm
+  Path loss exponent    = 3.0
+  Reference loss at 1 m = 40.05 dB
+  Transmission range    = 146.3 m
+
+   Nodes    Mean degree   Reachable frac      Mean hops Conn. delivery
+      10           1.93           0.4240           1.46         0.3640
+      15           2.88           0.5683           1.94         0.5086
+      20           3.91           0.7228           2.43         0.6874
+      25           4.96           0.8810           2.70         0.8295
+      30           5.96           0.9607           2.86         0.9134
+      35           6.92           0.9760           2.79         0.9435
+      40           8.02           0.9846           2.73         0.9645
+      45           9.10           0.9983           2.69         0.9742
+      50          10.10           0.9992           2.64         0.9785
+      55          11.12           0.9995           2.63         0.9829
+      60          12.17           0.9990           2.59         0.9818
+
+The delivery ratio first exceeds 0.95 at 40 nodes, where the mean
+node degree is 8.0. Below this density the graph partitions
+and packets addressed to unreachable nodes are lost, however good
+the routing protocol may be.
+
+       Range (m) Connectivity delivery ratio
+              60                   0.0731
+              80                   0.1749
+             100                   0.4280
+             120                   0.7058
+             140                   0.8909
+             160                   0.9383
+             180                   0.9590
+             200                   0.9640
+             220                   0.9680
+             240                   0.9683
+             260                   0.9664
+
+Raising the transmission power extends the range and improves
+connectivity, but increases interference and drains the battery,
+so the useful operating point lies just above the connectivity
+threshold rather than at maximum power.
+

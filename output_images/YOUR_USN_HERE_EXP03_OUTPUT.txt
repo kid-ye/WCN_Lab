@@ -1,0 +1,31 @@
+Mobile antenna correction a(hm) = 0.0159 dB
+Effective path loss exponent    = 3.5225
+Maximum tolerable path loss     = 159.0 dB
+
+Environment       L(1 km)     L(10 km)    Radius (km)          Sites
+Urban              126.40       161.63           8.42              3
+Suburban           116.46       151.69          16.13              1
+Open                97.90       133.12          54.28              1
+
+Suburban correction = 9.94 dB
+Open area correction = 28.51 dB
+
+Validity of the Hata model : 150-1500 MHz, hb 30-200 m, hm 1-10 m, d 1-20 km
+  Open      radius 54.3 km exceeds the 20 km validity limit
+
+  hb (m)          n    Radius (km)      Sites
+      30     3.5225          16.13          1
+      45     3.4071          20.89          1
+      60     3.3253          25.37          1
+     100     3.1800          36.72          1
+
+Coverage map, urban environment
+  Coverage radius used      = 8.42 km
+  Base station spacing      = 14.59 km
+  Sites placed in the area  = 7
+  Area above sensitivity    = 100.00 %
+
+  Site count from the area ratio = 3
+  Sites actually placed          = 7
+  The area ratio underestimates the requirement because the hexagons
+  at the boundary of a square service area are only partly used.

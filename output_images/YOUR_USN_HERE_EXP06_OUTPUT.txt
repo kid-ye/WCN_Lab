@@ -1,0 +1,28 @@
+Channel impulse response = [0.3         0.9         0.3]
+Equaliser length         = 11 taps
+Decision delay           = 6 samples
+Step size                = 0.010
+Noise variance           = 0.00990
+
+Minimum mean square error (Wiener) = 0.027724
+Maximum eigenvalue of R            = 2.2012
+Step size stability limit          = 0.9086
+
+Steady state mean square error (LMS) = 0.030536
+Tap error norm ||w - w_opt||         = 0.021974
+
+  SNR (dB) BER no equaliser    BER equalised
+         0          0.20539          0.20144
+         2          0.15794          0.15625
+         4          0.11982          0.11510
+         6          0.08700          0.07568
+         8          0.06172          0.04211
+        10          0.04365          0.01833
+        12          0.02832          0.00561
+        14          0.01646          0.00097
+        16          0.00703          0.00007
+        18          0.00203          0.00000
+        20          0.00032          0.00000
+
+Intersymbol interference before equalisation = 0.6667
+Intersymbol interference after equalisation  = 0.0768

@@ -1,0 +1,23 @@
+Total duplex channels = 125
+
+  N     D/R    S/I(dB)   Ch/cell   Offered(E)   Carried(E)   Subs/cell
+  3   3.000    11.30       41      31.916      31.277       1277
+  4   3.464    13.80       31      22.827      22.370        913
+  7   4.583    18.66       17      10.656      10.443        426
+  9   5.196    20.85       13       7.402       7.253        296
+ 12   6.000    23.34       10       5.084       4.982        203
+
+Minimum feasible cluster size N = 7
+Channels per cell               = 17
+Subscribers per cell            = 426
+
+N = 7 to N = 12 : channels fall 41.2 %, offered traffic falls 52.3 %
+
+Subscribers to be served = 320000
+Cells required           = 751
+Cell radius              = 0.453 km
+
+Sectoring:
+  i0 = 6 : N =  7, channels/cell = 17
+  i0 = 2 : N =  4, channels/cell = 31
+  i0 = 1 : N =  3, channels/cell = 41

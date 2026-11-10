@@ -1,0 +1,25 @@
+Outage threshold = 5 dB
+Branch fading    = Rayleigh, branches independent
+
+Realisations per point = 1e+06, resolution = 1.0e-06
+
+Outage probability at average branch SNR of 14 dB
+  Branches       SC sim    SC theory      EGC sim      MRC sim   MRC theory
+         1    1.181e-01    1.183e-01    1.181e-01    1.181e-01    1.183e-01
+         2    1.412e-02    1.399e-02    9.705e-03    7.433e-03    7.290e-03
+         3    1.681e-03    1.655e-03    5.350e-04    3.220e-04    3.027e-04
+         4    1.910e-04    1.958e-04    2.000e-05    8.000e-06    9.465e-06
+
+Diversity order, magnitude of the outage slope per decade of SNR
+  Branches           SC          EGC          MRC
+         1         0.99         0.87         0.99
+         2         1.99         1.78         1.99
+         3         2.98         2.75         2.99
+         4         3.98         3.78         3.99
+
+Array gain, average output SNR relative to a single branch (dB)
+ Branches    SC sim    SC thy   EGC sim   EGC thy   MRC sim   MRC thy
+        1      0.01      0.00      0.01      0.00      0.01      0.00
+        2      1.76      1.76      2.51      2.52      3.01      3.01
+        3      2.63      2.63      4.10      4.10      4.77      4.77
+        4      3.18      3.19      5.26      5.26      6.02      6.02

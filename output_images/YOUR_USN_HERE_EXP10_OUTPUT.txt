@@ -1,0 +1,47 @@
+Rayleigh flat fading, perfect channel knowledge at the receiver
+Modulation : BPSK for the error rate study
+Symbols per point = 1e+06, Monte Carlo resolution = 1.0e-06
+
+  SNR (dB)           SISO   Alamouti 2x1        MRC 1x2
+         0        0.14622        0.11560        0.05767
+         2        0.10828        0.07452        0.03275
+         4        0.07679        0.04414        0.01681
+         6        0.05296        0.02411        0.00808
+         8        0.03559        0.01179        0.00361
+        10        0.02339        0.00567        0.00161
+        12        0.01510        0.00247        0.00073
+        14        0.00963        0.00101        0.00028
+        16        0.00614        0.00040        0.00011
+        18        0.00393        0.00016        0.00005
+        20        0.00250        0.00007        0.00002
+        22        0.00163        0.00003        0.00001
+        24        0.00099        0.00001        0.00000
+
+Diversity order from the slope between 10 and 16 dB
+  SISO          : 0.97  (expected 1)
+  Alamouti 2x1  : 1.92  (expected 2)
+  MRC 1x2       : 1.92  (expected 2)
+
+Alamouti achieves the same diversity order as two-branch receive
+combining but is 3 dB worse, because the transmit power is divided
+between the two transmit antennas.
+
+  SNR (dB)          1x1          1x2          2x1          2x2
+         0        0.865        1.440        0.921        1.682
+         2        1.158        1.871        1.253        2.258
+         4        1.516        2.355        1.649        2.916
+         6        1.930        2.903        2.107        3.698
+         8        2.396        3.444        2.607        4.591
+        10        2.905        4.047        3.164        5.524
+        12        3.453        4.681        3.758        6.578
+        14        4.048        5.316        4.364        7.691
+        16        4.632        5.970        5.001        8.874
+        18        5.259        6.606        5.626       10.045
+        20        5.875        7.270        6.282       11.274
+        22        6.522        7.939        6.928       12.560
+        24        7.178        8.590        7.601       13.848
+
+At high signal to noise ratio the 2x2 capacity grows at twice the
+rate of the 1x1 capacity, which is the spatial multiplexing gain.
+     Slope          1x1          1x2          2x1          2x2
+bit/s/Hz per 3 dB         0.99         0.98         1.01         1.94

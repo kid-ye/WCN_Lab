@@ -1,0 +1,220 @@
+% =========================================================================
+%  WCN Lab Assignment -- main LaTeX source
+%  The USN is NOT typed here. run_all.m reads it from config.m and writes
+%  generated/usn.tex; it also writes generated/expNN_code.m (the merged code
+%  listing) and generated/expNN_outputs.tex (the output images).
+%  Build:  pdflatex -jobname=WCN_Lab_Assignment main.tex   (run twice)
+% =========================================================================
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[a4paper,top=25mm,bottom=25mm,left=24mm,right=24mm,headheight=14pt]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[scaled=0.86]{beramono}
+\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{array}
+\usepackage{chngcntr}
+\usepackage[hidelinks]{hyperref}
+
+\input{generated/usn.tex}
+
+% ---------------------------------------------------------------- headings
+\titleformat{\section}[display]
+  {\normalfont\sffamily\centering}
+  {\LARGE\bfseries Experiment~\thesection}
+  {6pt}
+  {\Large\bfseries}
+  [{\vspace{4pt}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{0pt}{14pt}
+\titleformat{\subsection}{\normalfont\sffamily\large\bfseries}{}{0pt}{}
+\titlespacing*{\subsection}{0pt}{14pt}{6pt}
+
+% ---------------------------------------------------------------- header/footer
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily Wireless and Cellular Networks Laboratory (23ET7PCWCN)}
+\fancyhead[R]{\small\sffamily USN: \USN}
+\fancyfoot[C]{\small\sffamily\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% ---------------------------------------------------------------- code (black only)
+\lstset{
+  language=Matlab,
+  basicstyle=\ttfamily\small,
+  keywordstyle={}, commentstyle={}, stringstyle={}, identifierstyle={},
+  numbers=left, numberstyle=\tiny, numbersep=8pt,
+  frame=single, framesep=4pt,
+  xleftmargin=18pt, framexleftmargin=4pt,
+  breaklines=true, breakatwhitespace=false,
+  postbreak=\mbox{$\hookrightarrow$\space},
+  columns=fullflexible, keepspaces=true,
+  showstringspaces=false, tabsize=4, upquote=true,
+  literate={*}{{\char42}}1 {-}{{\char45}}1
+}
+
+% ---------------------------------------------------------------- figures: 1.1, 1.2, ...
+\counterwithin{figure}{section}
+\captionsetup{font={small,sf},labelfont=bf,skip=6pt}
+\newcommand{\consoleoutput}[1]{%
+  \begin{figure}[H]\centering
+  \fbox{\includegraphics[width=0.95\linewidth,height=0.78\textheight,keepaspectratio]{#1}}
+  \caption*{Command Window Output}\end{figure}}
+\newcommand{\figureoutput}[1]{%
+  \begin{figure}[H]\centering
+  \includegraphics[width=0.92\linewidth,height=0.62\textheight,keepaspectratio]{#1}
+  \caption{}\end{figure}}
+
+% ---------------------------------------------------------------- experiment block
+% \experiment{NN}{title}{aim}{check value from the manual}
+\newcommand{\experiment}[4]{%
+  \clearpage
+  \section{#2}
+  \subsection{Aim}
+  #3
+  \par\smallskip
+  {\small\textbf{Check value (lab manual):} \emph{#4}}
+  \subsection{Code}
+  \lstinputlisting{generated/exp#1_code.m}
+  \subsection{Output}
+  \input{generated/exp#1_outputs.tex}}
+
+\begin{document}
+
+% ======================================================================== title
+\begin{titlepage}
+\centering\sffamily
+\vspace*{18mm}
+{\large BMS COLLEGE OF ENGINEERING, BENGALURU\par}
+\vspace{2mm}
+{\normalsize Department of Electronics and Telecommunication Engineering\par}
+\vspace{28mm}
+\rule{\linewidth}{1.2pt}\par
+\vspace{6mm}
+{\Huge\bfseries Wireless and Cellular\\[4pt] Networks Laboratory\par}
+\vspace{5mm}
+{\Large Lab Assignment --- MATLAB Experiments 1 to 15\par}
+\vspace{6mm}
+\rule{\linewidth}{1.2pt}\par
+\vspace{10mm}
+{\large Course Code: 23ET7PCWCN \quad$\cdot$\quad Semester VII \quad$\cdot$\quad Academic Year 2026--27\par}
+\vfill
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{>{\bfseries}r l}
+USN & \USN \\
+Execution environment & \RunEnv \\
+\end{tabular}
+\vspace{22mm}
+\end{titlepage}
+
+% ======================================================================== contents
+\pagenumbering{roman}
+\tableofcontents
+\thispagestyle{fancy}
+\clearpage
+\pagenumbering{arabic}
+
+\experiment{01}{Frequency Reuse, Co-channel Interference and Trunked Capacity}
+{To construct a hexagonal cellular layout, evaluate the co-channel reuse ratio and the signal to
+interference ratio for admissible cluster sizes, and determine the traffic capacity per cell using
+the Erlang~B model.}
+{For $N = 7$ the co-channel reuse ratio is $\sqrt{21} = 4.583$ and the signal to interference ratio is
+18.66~dB at a path loss exponent of four.}
+
+\experiment{02}{Free Space, Log-Distance and Two-Ray Ground Path Loss Models}
+{To implement the free space, log-distance and two-ray ground reflection path loss models, determine
+the two-ray crossover distance, and estimate the maximum cell radius for a specified receiver
+sensitivity.}
+{The free space path loss at 1~km and 900~MHz is 91.53~dB.}
+
+\experiment{03}{Okumura--Hata Model and Coverage Prediction}
+{To implement the Okumura--Hata model for urban, suburban and open environments, determine the
+coverage radius in each, and generate a coverage map for a hexagonal base station layout designed
+from the computed radius.}
+{For a medium city at 900~MHz with a 30~m base station and a 1.5~m mobile, the urban median path loss
+at 1~km is 126.40~dB and the mobile antenna correction is 0.0159~dB.}
+
+\experiment{04}{Log-Normal Shadowing and Rayleigh Fading}
+{To model log-normal shadowing and determine the fade margin required for a specified edge coverage
+probability, to generate a Rayleigh fading envelope by the sum of sinusoids method, and to measure the
+level crossing rate and average fade duration against theory.}
+{The maximum Doppler shift at 60~km/h and 900~MHz is 50~Hz, and the fade margin for 90 per cent edge
+coverage at $\sigma = 8$~dB is 10.25~dB.}
+
+\experiment{05}{Diversity Techniques --- Selection, Equal Gain and Maximal Ratio Combining}
+{To implement selection, equal gain and maximal ratio combining over independent Rayleigh fading
+branches, and to determine the outage probability, the diversity order and the array gain as functions
+of the number of branches.}
+{At four branches the maximal ratio combining array gain is 6.02~dB, which is exactly
+$10\log_{10}4$, and the equal gain value is 5.26~dB.}
+
+\experiment{06}{Adaptive Equalisation of a Multipath Channel using the LMS Algorithm}
+{To implement a transversal equaliser adapted by the least mean square algorithm, to compare the
+converged tap weights with the Wiener solution, and to determine the reduction in intersymbol
+interference and in bit error rate.}
+{For the stated channel the largest eigenvalue of the autocorrelation matrix is 2.2012, giving a step
+size stability limit of 0.9086, and the Wiener minimum mean square error is 0.0277.}
+
+\experiment{07}{GSM TDMA Frame Structure and Logical Channel Mapping}
+{To construct the GSM normal burst, compute the complete TDMA timing hierarchy, and map the logical
+channels onto the traffic and control multiframes.}
+{The TDMA frame duration is 4.6154~ms and the traffic multiframe is exactly 120~ms.}
+
+\experiment{08}{GMSK Modulation and Spectral Analysis}
+{To implement Gaussian minimum shift keying, examine the effect of the bandwidth time product on the
+transmitted spectrum, and verify the constant envelope property.}
+{At $BT = 0.3$ the bandwidth containing 99 per cent of the power is approximately 250~kHz, and the
+envelope variation is of the order of $10^{-16}$.}
+
+\experiment{09}{OFDM Transceiver --- Orthogonality, Cyclic Prefix and Peak to Average Power Ratio}
+{To implement an OFDM transmitter and receiver, verify subcarrier orthogonality, determine the cyclic
+prefix length required by a given channel, and measure the peak to average power ratio.}
+{For a channel of five taps the delay spread is four samples, and the error vector magnitude stops
+improving once the cyclic prefix reaches four samples.}
+
+\experiment{10}{MIMO --- SISO, Alamouti Transmit Diversity and Spatial Multiplexing Capacity}
+{To compare a single antenna link with Alamouti transmit diversity and with receive combining, and to
+compute the ergodic capacity of one by one, one by two, two by one and two by two Rayleigh channels.}
+{The measured diversity order is approximately 1 for the single antenna link and approximately 2 for
+both Alamouti and two branch receive combining. The two by two capacity slope is close to twice the
+single antenna slope.}
+
+\experiment{11}{LTE Resource Grid, Pilot Insertion and Channel Estimation}
+{To construct the LTE downlink resource grid, insert reference signals, estimate the channel by least
+squares with interpolation, and measure the estimation error and the resulting error vector magnitude.}
+{With a pilot spacing of six subcarriers at 15~kHz the pilots are 90~kHz apart, which is well inside the
+400~kHz coherence bandwidth of a channel with 0.5~$\mu$s delay spread.}
+
+\experiment{12}{5G NR Numerology and Waveform Comparison}
+{To compute the 5G New Radio numerologies, compare their symbol and slot durations, cyclic prefix
+lengths and Doppler tolerance, and relate each to its intended deployment.}
+{At $\mu = 0$ the useful symbol duration is 66.67~$\mu$s and the slot duration is approximately 1~ms;
+at $\mu = 1$ the slot duration is approximately 0.5~ms.}
+
+\experiment{13}{Wireless LAN Basic Service Set --- Contention and Scheduled Access}
+{To simulate a wireless LAN basic service set using the distributed coordination function, determine
+the packet transmission performance as the number of stations increases, and compare it with the
+scheduled access used by WiMAX.}
+{At ten stations the normalised saturation throughput of the distributed coordination function is
+approximately 0.76, and the analytical and simulated values agree to within one per cent.}
+
+\experiment{14}{Mobile Ad Hoc Network with an Omnidirectional Antenna Model}
+{To simulate a mobile ad hoc network of nodes with omnidirectional antennas, determine the transmission
+range from a path loss model, and analyse connectivity, route length and the connectivity-based delivery
+ratio against node density and transmission range.}
+{At 20~dBm with a path loss exponent of 3 and a sensitivity of $-85$~dBm the transmission range is
+approximately 146~m.}
+
+\experiment{15}{Optical Fibre Link --- Attenuation, Power Budget, Digital and Analog Performance}
+{To compute the attenuation spectrum of an optical fibre, establish the power budget and maximum link
+length, and determine the performance of a digital link and of an analog link.}
+{A bit error rate of $10^{-9}$ corresponds to a $Q$ factor of 6. The scattering component decreases
+approximately with the inverse fourth power of wavelength, while the total attenuation also includes
+absorption losses.}
+
+\end{document}

@@ -1,0 +1,43 @@
+GSM normal burst composition
+  Tail bits                 : 3 + 3
+  Encrypted data bits       : 57 + 57
+  Stealing flags            : 1 + 1
+  Training sequence         : 26
+  Total                     : 148 bits
+  Guard period              : 8.25 bit periods
+
+GSM timing hierarchy
+  Bit period                : 3.6923 us
+  Timeslot (burst) duration : 576.9231 us
+  TDMA frame (8 slots)      : 4.6154 ms
+  Traffic multiframe (26)   : 120.00 ms
+  Control multiframe (51)   : 235.38 ms
+  Superframe (51x26)        : 6.120 s
+  Hyperframe (2048 super)   : 12533.76 s
+
+Traffic channel gross rate  : 24.70 kbit/s
+Traffic channel useful rate : 22.80 kbit/s
+
+26-frame traffic multiframe (T traffic, S SACCH, I idle)
+  T T T T T T T T T T T T S T T T T T T T T T T T T I 
+
+51-frame control multiframe, downlink timeslot 0, non-combined
+  F FCCH   S SCH   B BCCH   C CCCH (PCH and AGCH)   I idle
+  F S B B B B C C C C F S C C C C C C C C F S C C C C C C C C F S C C C C C C C C F S C C C C C C C C I 
+  F at frames : 0 10 20 30 40
+  S at frames : 1 11 21 31 41
+  B at frames : 2 3 4 5
+  C at frames : 6 7 8 9 12 13 14 15 16 17 18 19 22 23 24 25 26 27 28 29 32 33 34 35 36 37 38 39 42 43 44 45 46 47 48 49
+  I at frames : 50
+  CCCH occupies 36 of the 51 frames
+
+Channel  Direction    Type       Function
+FCCH     Downlink     Broadcast  Frequency correction
+SCH      Downlink     Broadcast  Frame synchronisation, BSIC
+BCCH     Downlink     Broadcast  Cell and network parameters
+PCH      Downlink     Common     Paging of mobile stations
+AGCH     Downlink     Common     Assignment of a dedicated channel
+RACH     Uplink       Common     Random access request
+SDCCH    Both         Dedicated  Call setup signalling
+SACCH    Both         Dedicated  Power control, timing advance
+TCH      Both         Traffic    Encoded speech or data
